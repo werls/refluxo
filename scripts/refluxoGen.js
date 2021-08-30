@@ -1,5 +1,5 @@
 function setText(_name, _text, doc) {
-	doc.setFont('Courier');
+	doc.setFont('NotoSans', 'normal');
 	doc.setFontSize(12);
 
 	var pageWidth = doc.internal.pageSize.width;
@@ -22,28 +22,16 @@ function setText(_name, _text, doc) {
 	}
 
 	doc.setFontSize(10);
+	doc.setFont('NotoSans', 'bold');
 	doc.text(_name, pageWidth / 2, pageHeight - 20, options = { align: 'center'});
 }
 
 function pdfGen() {
 	window.jsPDF = window.jspdf.jsPDF;
-	const doc = new jsPDF({ unit: 'mm' }, function() 
-	{
-		// var blob = doc.output('blob');
-
-		// var formData = new FormData();
-		// formData.append('pdf', blob);
-
-		// $.ajax('/upload.php',
-		// {
-		// 	method: 'POST',
-		// 	data: formData,
-		// 	processData: false,
-		// 	contentType: false,
-		// 	success: function(data){console.log(data)},
-		// 	error: function(data){console.log(data)}
-		// });
-	});
+	const doc = new jsPDF({unit:'mm'});
+	
+	doc.addFont('./fonts/NotoSans.ttf', 'NotoSans', 'normal');
+	doc.addFont('./fonts/NotoSans-Bold.ttf', 'NotoSans', 'bold');
 
 	var name = $('#nome').val();
 	var text = $('#texto').val();
@@ -58,4 +46,3 @@ function pdfGen() {
 	doc.deletePage(1);
 	doc.save(filename);
 }
-

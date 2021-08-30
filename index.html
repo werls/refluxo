@@ -6,15 +6,16 @@
 	<title>Refluxo — Yiftah Peled</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+	<script src="./scripts/jspdf.umd.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-	<script src="refluxoGen.js"></script>
 
-
+	<script src="./scripts/refluxoGen.js"></script>
+	<script src="./scripts/NotoSans-Regular-normal.js" type="module"></script>
+	<script src="./scripts/NotoSans-Bold-bold.js" type="module"></script>
 
 	<style>
 
@@ -86,15 +87,10 @@
 
 		label { font-size: .8em;
 				margin-left: -1em;
-				/*margin-bottom: 1em*/ }
-
-		/*input {
-			margin-top: 1em;
-		}*/
+		}
 
 		button {
 			background-color: white;
-			/*border:  3px solid black;*/
 			border:  0;
 			padding:  1em;
 			font-size: 16px;
@@ -118,12 +114,10 @@
 			font-size: 1em;
 			color: black;
 			font-weight: 800;
-			/*cursor: pointer;*/
 		}
 
 		a:hover {
 			text-decoration: none;
-			/*color: white;*/
 		}
 		
 		#proposicao {
@@ -165,25 +159,18 @@
 <body>
 
 	<div class="wrapper">
-
 	<div id="container">
-
 		<div id="header">
 		<img src="refluxo.svg"/ alt="Refluxo">
 		<h2>Yiftah Peled</h2>
 		</div>
-
 		<div id="content">
-
 		<form>
 				<label>Nome completo</label><br>
 				<input type="text" id="nome" placeholder=""/><br>
 				<label>Texto</label><br>
-				<!-- <textarea id="texto" class="boxsizingBorder" placeholder="Seu texto aqui" cols="48" rows="10"></textarea> -->
 				<textarea id="texto" placeholder="Invente uma história que julgue interessante, de 3 a 6 linhas, sobre cada objeto fotografado. Imagine algo sobre suas “biografias”, percursos ou origens. Você pode criar relações entre os objetos e pessoas ou suas próprias experiências." maxlength="500"></textarea>
 		</form>
-
-
 		</div>
 
 		<div id="botoes">
@@ -194,8 +181,6 @@
 				<a href="#proposicao"><button>Ler a proposição</button></a>
 			</div>
 		</div>
-
-
 	</div>
 	</div>
 
@@ -210,9 +195,7 @@
 	</div>
 	
 	
-
-	<!-- <div id="footer">Refluxo é parte da exposição "Os sonhos de quem estamos sonhando?"</div> -->
-
+	<!-- <div id="footer">Refluxo é parte da exposição "Os sonhos de quem estamos sonhando?, de Yiftah Peled"</div> -->
 
 	<script>
 		$('#submit').on('click', pdfGen);
